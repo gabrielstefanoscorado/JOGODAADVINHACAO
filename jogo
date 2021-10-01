@@ -1,0 +1,32 @@
+import random
+print("***BEM VINDO AO JOGO DA ADIVINHAÇÃO!***")
+num = random.randrange(1, 101)
+tentativas = 0
+print("ESCOLHA O NÍVEL DE DIFICULDADE!")
+print("(1) - FÁCIL, (2) - MÉDIO, (3) - DIFÍCIL")
+dificuldade = int(input("Digite o nível:"))
+if dificuldade == 1:
+    tentativas = 20
+elif dificuldade == 2:
+    tentativas = 10
+else:
+    tentativas = 5
+for i in range(1,tentativas+1):
+    print("Tentativa {} de {}".format(i, tentativas))
+    numero = int(input("Digite um número:"))
+    certo = num == numero
+    maior = num < numero
+    menor = num > numero
+    perdeu = i == tentativas
+    if certo:
+        print("PARABÉNS, VOCÊ ACERTOU!")
+        print("VOCÊ VENCEU!")
+    elif maior:
+        print("HUM, VOCÊ DIGITOU UM NÚMERO MAIOR!")
+        print("NÃO DESISTA, TENTE NOVAMENTE!")
+    elif menor:
+        print("HUM, VOCÊ DIGITOU UM NÚMERO MENOR!")
+        print("NÃO DESISTA, TENTE NOVAMENTE!")
+    elif perdeu:
+        print("VOCÊ PERDEU!")
+print("FIM DE JOGO!")
